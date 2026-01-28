@@ -1,5 +1,7 @@
 use std::borrow::Cow;
 
+use ratatui::symbols;
+pub mod tui;
 trait HasAge {
     fn increment_age(&mut self);
 }
@@ -49,9 +51,28 @@ fn main() {
         arbitrary_data: vec![
             (String::from("Hobby"), String::from("Reading")),
             (String::from("City"), String::from("New York")),
+            (String::from("Birthplace"), String::from("Los Angeles")),
         ],
     };
 
     increment_age(&mut flex_human);
     println!("Flexible human new age: {}", flex_human.age);
+    println!("Flexible human entire struct: {:?}", flex_human);
+    println!("Flexible human entire struct with pretty debug: {:#?}", flex_human);
+    println!("Flexible human hobby: {}", flex_human.arbitrary_data[0].1);
+    let city_equals_birthplace = flex_human.arbitrary_data[1].1 == flex_human.arbitrary_data[2].1;
+    println!("City equals Birthplace: {}", city_equals_birthplace);
+    tui::main(
+        String::from(
+            format!(
+                "Hello, {0}! You are {1} years old.\nYou live in {2} and were born in {3}.",
+                flex_human.name,
+                flex_human.age,
+                flex_human.arbitrary_data[1].1,
+                flex_human.arbitrary_data[2].1
+            )
+        ),
+        String::from(" Flexible Human created "),
+        symbols::border::ROUNDED
+    ).unwrap();
 }
