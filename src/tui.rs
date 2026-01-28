@@ -7,7 +7,8 @@ pub fn main(text: String, window_title: String, outline_style: symbols::border::
     ratatui::run(|terminal| {
         terminal.draw(|frame| {
             let block =
-            Block::bordered()
+            Block::
+            bordered()
             .border_set(outline_style)
             .border_style(
                 Style::

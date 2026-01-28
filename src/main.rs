@@ -12,7 +12,7 @@ ___,,,___ _..............._
          //(        `    /(
 
 */
-use std::borrow::Cow; // moo
+use std::borrow::Cow;
 
 
 
@@ -35,7 +35,7 @@ struct Human {
 
 #[derive(Debug)]
 struct FlexibleHuman<'a> {
-    name: Cow<'a, str>,
+    name: Cow<'a, str>, // moo
     age: u8,
     arbitrary_data: Vec<(String, String)>,
 }
@@ -96,3 +96,9 @@ fn main() {
         symbols::border::ROUNDED // there has to be a better way to do this
     ).unwrap();
 }
+
+
+/*
+Thanks to Joan Stark for the cow art!
+https://asciiart.website/art/5790
+*/
