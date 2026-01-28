@@ -6,7 +6,15 @@ use ratatui::widgets::{Block, Paragraph};
 pub fn main(text: String, window_title: String, outline_style: symbols::border::Set<'_>) -> Result<(), Box<dyn std::error::Error>> {
     ratatui::run(|terminal| {
         terminal.draw(|frame| {
-            let block = Block::bordered().border_set(outline_style).border_style(Style::new().blue()).title(window_title);
+            let block =
+            Block::bordered()
+            .border_set(outline_style)
+            .border_style(
+                Style::
+                new()
+                .blue()
+            )
+            .title(window_title);
             let greeting = Paragraph::new(text)
                 .centered()
                 .yellow()

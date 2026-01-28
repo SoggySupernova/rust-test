@@ -1,7 +1,26 @@
-use std::borrow::Cow;
+/*
+
+___,,,___ _..............._
+'-/~'~\-'` :::::'   .::    \
+  |0 0 |   ':::'     `::   ||
+  |   /::.  :::.  .:::.  ::||
+  (oo/::'  .::::..::::::.  /|
+   `` '._   /:::'''::::' <`\/
+         | /`--....-'`Y   \))
+         |||         //'. |((
+         |||        //   ||
+         //(        `    /(
+
+*/
+use std::borrow::Cow; // moo
+
+
+
 
 use ratatui::symbols;
+
 pub mod tui;
+
 trait HasAge {
     fn increment_age(&mut self);
 }
@@ -33,6 +52,7 @@ impl HasAge for FlexibleHuman<'_> {
     }
 }
 
+// wrapper, not strictly necessary but cleaner
 fn increment_age<T: HasAge>(entity: &mut T) {
     entity.increment_age();
 }
@@ -73,6 +93,6 @@ fn main() {
             )
         ),
         String::from(" Flexible Human created "),
-        symbols::border::ROUNDED
+        symbols::border::ROUNDED // there has to be a better way to do this
     ).unwrap();
 }
