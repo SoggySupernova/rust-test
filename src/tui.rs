@@ -22,7 +22,7 @@ pub fn main(text: String, window_title: String, outline_style: symbols::border::
                 .block(block);
             frame.render_widget(greeting, frame.area());
         })?;
-        std::thread::sleep(std::time::Duration::from_secs(5));
+        std::thread::sleep(std::time::Duration::from_secs(1));
         Ok(())
     })
 }

@@ -20,6 +20,8 @@ use std::borrow::Cow;
 use ratatui::symbols;
 
 pub mod tui;
+pub mod collatz;
+pub mod bad_sqrt_algorithm;
 
 trait HasAge {
     fn increment_age(&mut self);
@@ -95,7 +97,10 @@ fn main() {
         String::from(" Flexible Human created "),
         symbols::border::ROUNDED // there has to be a better way to do this
     ).unwrap();
+    collatz::main();
+    println!("{:.32}",bad_sqrt_algorithm::main(10));
 }
+
 
 
 /*
